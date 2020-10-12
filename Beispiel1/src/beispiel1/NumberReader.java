@@ -49,4 +49,14 @@ public class NumberReader {
 
     }
 
+    /*public void testTeiler(int teiler) {
+        list.stream()
+                .filter(s -> s % teiler == 0)
+                .collect(Collectors.toList());
+
+        for (Integer integer : list) {
+            System.out.println(integer);
+        }
+
+    }*/
 }
