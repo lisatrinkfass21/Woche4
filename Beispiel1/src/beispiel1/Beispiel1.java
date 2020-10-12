@@ -6,7 +6,10 @@
 package beispiel1;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  *
@@ -20,6 +23,7 @@ public class Beispiel1 {
         nr.readFile();
         int teiler = 0;
         int teilbereiche = 0;
+        ArrayList<Integer> list = nr.getList();
 
         while (teilbereiche == 0) {
             System.out.println("Geben Sie bitte die Anzahl der Teilbereiche ein:");
@@ -38,6 +42,12 @@ public class Beispiel1 {
                 System.out.println("Sie haben keine gültige Zahl eingegebn");
             }
         };
+
+        ThreadPoolExecutor tpe = (ThreadPoolExecutor) Executors.newFixedThreadPool(teiler);
+
+        {
+
+        }
     }
 
 }

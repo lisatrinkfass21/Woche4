@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -20,6 +21,7 @@ import java.util.logging.Logger;
 public class NumberReader {
 
     ArrayList<Integer> list = new ArrayList<Integer>();
+    int teiler = 0;
 
     public void readFile() throws FileNotFoundException {
 
@@ -38,6 +40,10 @@ public class NumberReader {
 
     }
 
+    public ArrayList<Integer> getList() {
+        return list;
+    }
+
     private void isNumeric(String num) {
         int zahl;
         try {
@@ -49,14 +55,4 @@ public class NumberReader {
 
     }
 
-    /*public void testTeiler(int teiler) {
-        list.stream()
-                .filter(s -> s % teiler == 0)
-                .collect(Collectors.toList());
-
-        for (Integer integer : list) {
-            System.out.println(integer);
-        }
-
-    }*/
 }
