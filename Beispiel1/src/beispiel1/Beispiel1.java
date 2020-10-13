@@ -7,6 +7,7 @@ package beispiel1;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -43,8 +44,16 @@ public class Beispiel1 {
             }
         };
 
-        ThreadPoolExecutor tpe = (ThreadPoolExecutor) Executors.newFixedThreadPool(teiler);
+        ThreadPoolExecutor tpe = (ThreadPoolExecutor) Executors.newFixedThreadPool(teilbereiche);
+        List<Integer> sublist = null;
+        int teilerFurTeilBereiche = list.size() / teilbereiche;
+        for (int i = 0; i < teilbereiche; i++) {
+            sublist = list.subList(i * teilerFurTeilBereiche, i * teilerFurTeilBereiche + teilerFurTeilBereiche);
+            MyRunnable run = new MyRunnable(sublist, teiler);
+            tpe.execute(run);
 
+        }
+        tpe.shutdown();
         {
 
         }

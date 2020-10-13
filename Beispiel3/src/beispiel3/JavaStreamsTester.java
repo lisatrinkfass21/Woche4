@@ -5,6 +5,7 @@
  */
 package beispiel3;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,46 @@ import java.util.stream.Collectors;
  * @author Lisa
  */
 public class JavaStreamsTester {
+
+    public static void main(String[] args) {
+        List<String> strings = new LinkedList<String>();
+        List<Integer> numbers = new LinkedList<Integer>();
+
+        strings.add("aaljs");
+        strings.add("");
+        strings.add("ashdfkdsj");
+        strings.add("sdf");
+        strings.add("laskdj");
+        strings.add("asd");
+        strings.add("sdd");
+        strings.add("aaa");
+        strings.add("sadflkas");
+        strings.add("");
+        strings.add("sss");
+        strings.add("add");
+        strings.add("");
+
+        for (int i = 0; i < 15; i++) {
+            numbers.add((int) (Math.random() * 100));
+        }
+
+        System.out.println(getCountEmmptyString(strings));
+        System.out.println(getCountLength3(strings));
+        strings = deleteEmptyStrings(strings);
+        for (String string : strings) {
+            System.out.println(string);
+        }
+        System.out.println(getMergedString(strings, " ; "));
+        List<Integer> squares = getSquares(numbers);
+        for (Integer square : squares) {
+            System.out.println(square);
+        }
+        System.out.println(getMax(numbers));
+        System.out.println(getMin(numbers));
+        System.out.println(getSum(numbers));
+        System.out.println(getAverage(numbers));
+
+    }
 
     private static int getCountEmmptyString(List<String> strings) {
         return strings.stream()
@@ -26,8 +67,10 @@ public class JavaStreamsTester {
                 .collect(Collectors.toList()).size();
     }
 
-    private static List<String> deleteEmptyStringsUsingJava7(List<String> strings) {
-        return null;
+    private static List<String> deleteEmptyStrings(List<String> strings) {
+        return strings.stream()
+                .filter(s -> !s.equals(""))
+                .collect(Collectors.toList());
     }
 
     private static String getMergedString(List<String> strings, String separator) {

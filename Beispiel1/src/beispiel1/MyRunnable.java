@@ -5,7 +5,7 @@
  */
 package beispiel1;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -14,17 +14,17 @@ import java.util.stream.Collectors;
  */
 public class MyRunnable implements Runnable {
 
-    private ArrayList<Integer> list;
+    private List<Integer> list;
     private int teiler;
 
-    public MyRunnable(ArrayList<Integer> list, int teiler) {
+    public MyRunnable(List<Integer> list, int teiler) {
         this.list = list;
         this.teiler = teiler;
     }
 
     @Override
     public void run() {
-        list.stream()
+        list = list.stream()
                 .filter(s -> s % teiler == 0)
                 .collect(Collectors.toList());
 
