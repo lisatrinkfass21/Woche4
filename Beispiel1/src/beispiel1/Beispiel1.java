@@ -54,9 +54,7 @@ public class Beispiel1 {
 
         }
         tpe.shutdown();
-        {
 
-        }
     }
 
 }
